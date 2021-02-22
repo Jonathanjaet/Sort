@@ -1,0 +1,11 @@
+package javaapplication1;
+
+public class Familia {
+    public String apellidoPaterno;
+    
+    public String apellidoMaterno;
+    
+    public String tipoDeOjos = "Rasgados";
+    
+    
+}
