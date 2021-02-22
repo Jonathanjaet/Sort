@@ -1,0 +1,37 @@
+package javaapplication1;
+
+public class Persona extends Familia
+{
+    String nombre;
+    
+    int edad;
+    
+    String sexo;
+    
+    public Persona (String parametro1,int parametro2,String parametro3,String ap1,String ap2){
+        nombre = parametro1;
+        
+        edad = parametro2;
+        
+        sexo = parametro3;
+        
+        apellidoPaterno = ap1;
+        
+        apellidoMaterno = ap2;
+        
+        
+    }
+    public String toString(){
+        return("Nombre es " + nombre + " " + apellidoPaterno 
+                +" "+ apellidoMaterno + " edad " + edad + " es de sexo "+ sexo +" "+ tipoDeOjos);
+    }
+     public Persona (String parametro1,int parametro2,String parametro3)
+     {
+        nombre = parametro1;
+        
+        edad = parametro2;
+        
+        sexo = parametro3;
+        
+     }
+}
