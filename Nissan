@@ -1,0 +1,8 @@
+package javaapplication1;
+
+public class Nissan extends Automoviles{
+    
+    public String getFrenar() {
+        return "NO TE EQUIVOQUES... LOS NISAN SON LOS MAS SEGUROS AL FRENAR";
+    }
+}
