@@ -1,0 +1,22 @@
+package javaapplication1;
+import java.io.*;
+import java.util.Scanner;
+public class capturaDeTextos 
+//Entrada y salidas archivos
+{
+    public static void main(String[] args) 
+    {
+        try(FileOutputStream fos=new FileOutputStream("C:\\Ejemplos\\Salida.txt"))
+        {
+            Scanner entrada = new Scanner(System.in);
+            String texto = entrada.nextLine();
+            //Copiamos el texto en un array de bytes
+            byte codigos[]=texto.getBytes();
+            fos.write(codigos);
+        }
+        catch(IOException e)
+        {
+            
+        }
+    }
+}
