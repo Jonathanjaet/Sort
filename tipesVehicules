@@ -1,0 +1,92 @@
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class tipesVehicules 
+{
+    public static void main(String[] args) 
+    {
+        Scanner entrada = new Scanner(System.in);
+        
+        int numero;
+
+        System.out.println("Introduzca tamaño del Lote: ");
+
+        numero = entrada.nextInt();
+ 
+        Automoviles ArrayN[] = new Automoviles[numero];
+        
+        Automoviles jetta = new Automoviles();
+        System.out.println(jetta.getFrenar());
+        
+        Automoviles tsuru = new Nissan();
+        System.out.println(tsuru.getFrenar());
+        System.out.println(tsuru.getSonido());
+        
+        for (int i = 0; i < ArrayN.length; i++) 
+        {
+            System.out.println("Introduzca precio para el automovil " + (i + 1) + ": ");
+            int precio = entrada.nextInt();
+            System.out.println("Introduzca color para el automovil " + (i + 1) + ": ");
+            String color = entrada.next();
+            System.out.println("Introduzca modelo para el automovil " + (i + 1) + ": ");
+            String nombre = entrada.next();
+            System.out.println("Introduzca tipo de manijas (Altas o Estandar) para el automovil " + (i + 1) + ": ");
+            String manijas = entrada.next();
+            System.out.println("Introduzca capacidad para el automovil " + (i + 1) + ": ");
+            int capacidad = entrada.nextInt();
+            System.out.println("Introduzca velocidad maxima para el automovil " + (i + 1) + ": ");
+            int kph = entrada.nextInt();
+            System.out.println("Introduzca tipo de transmisión para el automovil " + (i + 1) + ": ");
+            String tipoDeT = entrada.next();
+            System.out.println("Introduzca tipo de terreno (Tierra o Asfalto) especializado para el automovil " + (i + 1) + ": ");
+            String terreno = entrada.next();
+            
+            Automoviles p = new Automoviles(precio,color,nombre,manijas,capacidad,kph,tipoDeT,terreno);
+            
+            ArrayN[i] = p;
+        }
+        System.out.println("      -SIN ORDENAR-");
+
+        mostrarN(ArrayN);
+
+        System.out.println("¿Desea ordenar los automoviles? S/N");
+        Scanner sc2 = new Scanner(System.in);
+        
+        String respuesta = sc2.nextLine();
+
+        if (respuesta.equalsIgnoreCase("S")) 
+        {
+            System.out.println("       -ORDENADO-");
+            ordenaBurbuja(ArrayN);
+        }
+
+    }
+
+    static void ordenaBurbuja(Automoviles ArrayN[]) 
+    {
+        for (int i = 0; i < ArrayN.length - 1; i++) 
+        {
+            for (int j = 0; j < ArrayN.length - 1; j++) 
+            { 
+                if (ArrayN[j].nombre.compareToIgnoreCase(ArrayN[j + 1].nombre) > 0) 
+                {
+                    Automoviles temp = ArrayN[j + 1];
+                    ArrayN[j + 1] = ArrayN[j];
+                    ArrayN[j] = temp;
+                }
+            }
+        }
+        mostrarN(ArrayN);
+    }
+
+    static void mostrarN(Automoviles ArrayN[]) 
+    {
+        System.out.println("|-----------------------|");
+        for (int i = 0; i < ArrayN.length; i++) 
+        { 
+            System.out.print(" Elemento " + (i + 1) + " -----> " + ArrayN[i] + "\n");
+        }
+        System.out.println("|-----------------------|");
+    }
+}
