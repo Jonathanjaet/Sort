@@ -1,0 +1,39 @@
+package javaapplication1;
+
+public class Automoviles extends vehiculosTerrestres{
+    
+    //Campos o Variables de clase
+    public int capacidad;
+    public int kph;
+    public String tipoDeT;
+    int precio;
+    String color;
+    String nombre;
+    String manijas;//Gaviota o Estandar
+       
+    // Metodo constructor    
+    public Automoviles (int precio,String color,String nombre,String manijas,int capacidad,int kph,String tipoDeT,String terreno){
+        this.precio = precio;
+        this.color = color;
+        this.nombre = nombre;
+        this.manijas = manijas;
+        this.capacidad = capacidad;
+        this.kph = kph;
+        this.tipoDeT = tipoDeT;
+        this.terreno = terreno;  
+    }
+    
+    public Automoviles () {
+        
+    }
+    
+    public Automoviles (String color) {
+        this.color = color;
+    }
+    
+    public String toString(){
+        return("El auto es " + nombre + " de color " + color + ", con manijas " + manijas 
+                + ", cuesta " + precio + ", es para " + capacidad + " pasajeros, corre hasta " + kph
+                + " y tiene una transmisión" + tipoDeT + " mejor en " + terreno);
+    }
+}
