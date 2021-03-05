@@ -1,0 +1,16 @@
+package javaapplication1;
+
+public class vehiculosTerrestres {
+    
+    public String terreno;//Tierra o Asfalto
+    public String tipoCombustible;
+    public String tipoMotor;
+    
+    public String getSonido() {
+        return "BEEEEEEEEEEEP";
+    }
+    
+    public String getFrenar() {
+        return "FREEEEEEEEENA!";
+    } 
+}
