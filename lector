@@ -1,0 +1,39 @@
+package javaapplication1;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class lector {
+
+    /*
+    Vehiculo1: Precio: 100, Color: NEGRO, Modelo: TSURU, Manijas:4, Pasajeros:5, Velocidad Maxima:100
+    Vehiculo2: Precio: 500  Color: ROJO Modelo:AUDI Manijas:2 Psajeros:2 Velocidad Maxima:250
+    Vehiculo3: ....    
+    
+     */
+    public static void main(String[] args){
+        try {
+            FileReader reader = new FileReader("C:\\Ejemplos\\tipesVehicules.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+   
+            while ((line = bufferedReader.readLine()) != null) {
+   
+                String[] valores = line.split(",");
+                String precio = valores[0];
+                String color  = valores[1];
+                String nombre = valores[2];
+                String capacidad = valores[3];
+                String kph = valores[4];
+
+                System.out.println("Precio:" + precio + " Color:" + color
+                + " Modelo:" + nombre + " Capacidad:" + capacidad
+                + " Velocidad Maxima" + kph);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
