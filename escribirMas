@@ -1,0 +1,90 @@
+package javaapplication1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class escribirMas 
+{
+    public static void main(String[] args) throws FileNotFoundException, IOException  
+    {
+        Scanner entrada = new Scanner(System.in);
+        int numero;
+        
+        //ABRIMOS EL ARCHIVO
+        File file = new File("C:\\Ejemplos\\tipesVehicules.txt");
+        // Si el archivo no existe, se crea!
+        if (!file.exists()) 
+        {
+             file.createNewFile();
+        }
+        // flag true, indica adjuntar información al archivo.
+        FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+        PrintWriter pw = new PrintWriter(fw);
+      
+        {
+        try {
+            System.out.println("Introduzca tamaño del Lote: ");
+            numero = entrada.nextInt();
+            Automoviles ArrayN[] = new Automoviles[numero];
+
+            for (int i = 0; i < ArrayN.length; i++) 
+            {
+                System.out.println("Introduzca precio para el automovil " + (i + 1) + ": ");
+                int precio = entrada.nextInt();
+                System.out.println("Introduzca color para el automovil " + (i + 1) + ": ");
+                String color = entrada.next();
+                System.out.println("Introduzca modelo para el automovil " + (i + 1) + ": ");
+                String nombre = entrada.next();
+                System.out.println("Introduzca capacidad para el automovil " + (i + 1) + ": ");
+                int capacidad = entrada.nextInt();
+                System.out.println("Introduzca velocidad maxima para el automovil " + (i + 1) + ": ");
+                int kph = entrada.nextInt();
+
+                Automoviles p = new Automoviles(precio, color, nombre, capacidad, kph);
+
+                // ESCRIBIMOS EN EL ARCHIVO
+                ArrayN[i] = p;
+                pw.print(precio);
+                pw.print(',');
+                pw.print(color);
+                pw.print(',');
+                pw.print(nombre);
+                pw.print(',');
+                pw.print(capacidad);
+                pw.print(',');
+                pw.println(kph);
+            }
+            
+            
+            System.out.println("información agregada!");
+           
+            } catch (Exception e) 
+                {
+                   e.printStackTrace();
+                }
+            finally
+                {
+                try 
+                  {
+                  //Cierra instancias de FileWriter y BufferedWriter
+                  if (pw != null) 
+                     {
+                         pw.close();
+                     }
+                  if (fw != null) 
+                     {
+                         fw.close();
+                     }
+                  } 
+                  catch (IOException ex) 
+                     {
+                         ex.printStackTrace();
+                     }
+                }
+        }
+    }
+}
